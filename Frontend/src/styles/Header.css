@@ -1,0 +1,5 @@
+.navbar {
+    background-color: cyan;
+    display: flex;
+    justify-content: space-between;
+}
