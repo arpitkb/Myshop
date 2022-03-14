@@ -5,10 +5,12 @@ import Login from "./routes/Login";
 import Header from "./partials/Header";
 import Checkout from "./routes/Checkout";
 import Cart from "./routes/Cart";
+import Home from "./routes/Home";
+import {CartProvider} from "./context/CartContext";
 function App() {
   return (
+    < CartProvider >
     <div className="App">
-      
       <Router>
         <Header/>
         <Switch>
@@ -22,11 +24,12 @@ function App() {
             <Cart />
           </Route>
           <Route path="/">
-            <h1>Home page</h1>
+            <Home />
           </Route>
         </Switch>
       </Router>
     </div>
+    </CartProvider>
   );
 }
 
