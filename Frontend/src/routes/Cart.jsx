@@ -6,6 +6,8 @@ function Cart() {
   return (
     <div>
       <h1>Cart </h1>
+      {/* add remove from cart button */}
+      {/* store the cart in cookies/cache */}
       {products.map(product => (<h2> {product.name}</h2>))}
     </div>
   )
