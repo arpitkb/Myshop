@@ -1,17 +1,48 @@
 .product {
-    margin: 20px;
-    background-color: gray;
+    height: 350px;
+    width: 300px;
+    /* center the images inside */
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    /* Remove the default styles */
+    list-style: none;
+    /* Add the custom styles */
+    background-color: #f5f5f5;
+    border: 1px solid rgb(185, 185, 185);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+    overflow: hidden;
+    
+}
+/* Add the hover styles */
+.product:hover {
+    border-color: #0099ff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.product_info {
+    text-decoration: none;
 }
 .product__rating {
     display: flex;
     justify-content: left;
     align-items: center;
     margin-bottom: 1rem;
+    /* no underline */
+    text-decoration: none;
+    text-underline-offset: 50px;
 }
+
 .product_img {
-    width: 100px;
+    width: 200px;
     height: auto;
     margin-bottom: 1rem;
+    /* center */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
 }
