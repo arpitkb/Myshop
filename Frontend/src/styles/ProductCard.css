@@ -24,18 +24,21 @@
     cursor: pointer;
 }
 .product_info {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 .product__rating {
     display: flex;
-    justify-content: left;
+    justify-content: cebter;
     align-items: center;
     margin-bottom: 1rem;
+    margin-top: .5rem;
     /* no underline */
     text-decoration: none;
-    text-underline-offset: 50px;
 }
-
+.rating_num {
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+}
 .product_img {
     width: 200px;
     height: auto;
@@ -45,4 +48,7 @@
     margin-left: auto;
     margin-right: auto;
 
+}
+a {
+    text-decoration: none;
 }
