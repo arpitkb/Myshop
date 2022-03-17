@@ -5,14 +5,14 @@ import data from '../data'
 function Search() {
     const {ProductId} = useParams();
     console.log( "This is the id:" , ProductId);
-    // const products = data.products.filter(product => product.name.toLowerCase().includes(SearchQuery.toLowerCase()))
+    const products = data.products.filter(product => product.name.toLowerCase().includes(ProductId.toLowerCase()))
   return ProductId ? (
     <div>
         <h1>Search results for: {ProductId}</h1>
         {
-            // products.map(product => (
-            //     <ProductCard key={product.id} product={product} />
-            // ))
+            products.map(product => (
+                <ProductCard key={product.id} product={product} />
+            ))
         }
 
     </div>
