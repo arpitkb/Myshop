@@ -8,6 +8,7 @@ import Cart from "./routes/Cart";
 import Home from "./routes/Home";
 import ProductRoute from "./routes/ProductRoute";
 import {CartProvider} from "./context/CartContext";
+import SearchRoute from "./routes/SearchRoute";
 function App() {
   return (
     < CartProvider >
@@ -26,6 +27,10 @@ function App() {
           </Route>
           <Route path="/product">
             <ProductRoute />
+          </Route>
+          
+          <Route path="/search">
+            <SearchRoute />
           </Route>
           <Route path="/">
             <Home />

@@ -15,16 +15,17 @@ function ProductCard(props) {
             />
             <div className="produt_info">
                 
-                    <h2>{name}</h2>
+                    <h2 style={{textDecoration: 'none'}}>{name}</h2>
                 
                 
                 <div className="product__rating">
                     {
                         Array(rating).fill()
                             .map((key) => (
-                                <p className='stars'>*</p>
+                                <h3>*</h3>
                             ))
                     }
+                    <p className='rating_num'>{rating}</p>
                 </div>
                 <p className="product__price">
                     <small>$</small>
