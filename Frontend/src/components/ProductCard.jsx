@@ -1,34 +1,43 @@
-import React from 'react'
-import '../styles/ProductCard.css'
-import { CartUpdater } from '../context/CartContext';
+import React from "react";
+import "../styles/ProductCard.css";
+import { Link } from "react-router-dom";
+import { CartUpdater } from "../context/CartContext";
+import { Button, Card } from "react-bootstrap";
 
 function ProductCard(props) {
-    let {name, price, image, rating} = props.product;
-    const addToCart = React.useContext(CartUpdater);
+  let { id, name, price, image, rating } = props.product;
+  const addToCart = React.useContext(CartUpdater);
   return (
-    <div className="product">
-            <div className="produt_info">
-                <h2>{name}</h2>
-                <p className="product__price">
-                    <small>$</small>
-                    <strong>{price}</strong>
-                </p>
-                <div className="product__rating">
-                    {
-                        Array(rating).fill()
-                            .map(() => (
-                                <p>*</p>
-                            ))
-                    }
-                </div>
+    <>
+      <Card style={{ width: "18rem" }} className='rounded shadow border-0'>
+        <Card.Img variant='top' src={image} alt={name}></Card.Img>
+        <Card.Body>
+          <Link style={{ textDecoration: "none" }} to={`/product/${id}`}>
+            <div className='produt_info'>
+              <h2>{name}</h2>
+
+              <div>
+                {Array(rating)
+                  .fill()
+                  .map((key) => (
+                    <i className='fas fa-star'></i>
+                  ))}
+              </div>
+              <p>
+                <small>$</small>
+                <strong>{price}</strong>
+              </p>
             </div>
-            <img className='product_img'
-                alt={name}
-                src={image}
-            />
-            <button onClick={() => addToCart(props.product)}>Add to basket </button>
-            </div>
-  )
+          </Link>
+          <div className='d-grid'>
+            <Button onClick={() => addToCart(props.product)}>
+              Add to basket{" "}
+            </Button>
+          </div>
+        </Card.Body>
+      </Card>
+    </>
+  );
 }
 
-export default ProductCard
+export default ProductCard;

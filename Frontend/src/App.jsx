@@ -7,6 +7,7 @@ import Checkout from "./routes/Checkout";
 import Cart from "./routes/Cart";
 import Home from "./routes/Home";
 import "./lux.css";
+import ProductRoute from "./routes/ProductRoute";
 import { CartProvider } from "./context/CartContext";
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
             </Route>
             <Route path='/cart'>
               <Cart />
+            </Route>
+            <Route path='/product'>
+              <ProductRoute />
             </Route>
             <Route path='/'>
               <Home />

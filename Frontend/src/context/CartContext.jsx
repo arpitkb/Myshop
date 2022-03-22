@@ -3,18 +3,49 @@ import React from "react";
 
 export const CartContext = createContext([]);
 export const CartUpdater = createContext();
-export function CartProvider({children}) { 
-    const [cart, setCart] = React.useState([]);
+export const CartRemover = createContext();
+export function CartProvider({children}) {
+  // Add the cart to local storage or cookie
+
+    const [cart, setCart] = React.useState(JSON.parse(localStorage.getItem("cartItems")) || []);
+
     const addToCart = (product) => {
-        if(cart.includes(product)) {
-            setCart(cart.map(p => p.id === product.id ? {...product, quantity: product.quantity + 1} : p));
+      let includes = false;
+      let idx = 0;
+      cart.forEach((item, i) => {
+        if (item.id === product.id) {
+          includes = true;
+          idx = i;
         }
-        else setCart([...cart, product]);
+      });
+      let newCart = [...cart];
+      if(includes) {
+        newCart[idx] = { ...newCart[idx], quantity: newCart[idx].quantity + 1 };
+          setCart(newCart);
+      }
+      else {
+        newCart.push({ ...product, quantity: 1 });
+      }
+
+        localStorage.setItem(
+          "cartItems",
+          JSON.stringify(newCart)
+        );
+        setCart(newCart);
     }
+    const removeFromCart = (product) => {
+      let newCart = cart.filter(p => { return p.id !== product.id} );
+      localStorage.setItem("cartItems", JSON.stringify(newCart));
+      setCart(newCart);
+        
+    }
+
   return (
     <CartContext.Provider value={cart}>
         <CartUpdater.Provider value={addToCart}>
+            <CartRemover.Provider value={removeFromCart}>
         {children}
+            </CartRemover.Provider>
         </CartUpdater.Provider>
     </CartContext.Provider>
   )
