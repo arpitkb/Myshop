@@ -8,9 +8,11 @@ import Cart from "./routes/Cart";
 import Home from "./routes/Home";
 import ProductRoute from "./routes/ProductRoute";
 import {CartProvider} from "./context/CartContext";
+import { UserProvider } from "./context/UserContext";
 import SearchRoute from "./routes/SearchRoute";
 function App() {
   return (
+    <UserProvider>
     < CartProvider >
     <div className="App">
       <Router>
@@ -39,6 +41,7 @@ function App() {
       </Router>
     </div>
     </CartProvider>
+    </UserProvider>
   );
 }
 
