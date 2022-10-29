@@ -9,9 +9,6 @@ function UserButton() {
   const user = React.useContext(UserContext);
   const login = React.useContext(LoginContext);
   const logout = React.useContext(LogoutContext);
-
-  // console.log(user);
-  // console.log(data.users.filter(u=>u.id === user.id));
   return (
     <div>
         <p>{data.users.filter(u => u.id === user?.id)[0]?.username}</p>
