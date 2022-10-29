@@ -12,8 +12,8 @@ import { UserProvider } from "./context/UserContext";
 import SearchRoute from "./routes/SearchRoute";
 function App() {
   return (
+  < CartProvider >
     <UserProvider>
-    < CartProvider >
     <div className="App">
       <Router>
         <Header/>
@@ -40,8 +40,8 @@ function App() {
         </Switch>
       </Router>
     </div>
-    </CartProvider>
     </UserProvider>
+    </CartProvider>
   );
 }
 
