@@ -107,6 +107,11 @@ let data = {
             id : 1,
             username: "admin",
             password: "admin"
+        },
+        {
+            id : 2,
+            username: "hello",
+            password: "world"
         }
     ]
 

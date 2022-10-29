@@ -4,6 +4,7 @@ import React from "react";
 export const CartContext = createContext([]);
 export const CartUpdater = createContext();
 export const CartRemover = createContext();
+export const CartCleaner = createContext();
 export function CartProvider({children}) {
   // Add the cart to local storage or cookie
 
@@ -39,12 +40,16 @@ export function CartProvider({children}) {
       setCart(newCart);
         
     }
-
+    const clearCart = () => {
+      setCart([]);
+    }
   return (
     <CartContext.Provider value={cart}>
         <CartUpdater.Provider value={addToCart}>
             <CartRemover.Provider value={removeFromCart}>
-        {children}
+              <CartCleaner.Provider value={clearCart}>
+                  {children}
+              </CartCleaner.Provider>
             </CartRemover.Provider>
         </CartUpdater.Provider>
     </CartContext.Provider>
